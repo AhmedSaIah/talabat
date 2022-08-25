@@ -188,7 +188,8 @@ class CategoriesSection extends StatelessWidget {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
                                         color: AppColors.primary),
-                                    child: const Text("New",
+                                    child: const Text(
+                                        "New",
                                         style: TextStyle(color: Colors.white)))
                                 : const SizedBox()
                       ],

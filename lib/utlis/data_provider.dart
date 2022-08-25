@@ -72,7 +72,7 @@ List<SwiperModel> swiperList() {
   );
   list.add(
     SwiperModel(
-      image: "assets/images/kobby-mendez-q54Oxq44MZs-unsplash.jpg",
+      image: "assets/images/dolores-preciado-Vu_fjfasu-4-unsplash.jpg",
     ),
   );
 

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:talabat/screens/home_page.dart';
-
+import 'package:talabat/screens/search_screen.dart';
+import 'package:talabat/screens/profile_screen.dart';
 import 'constants/app_colors.dart';
 
 class NavBar extends StatefulWidget {
@@ -16,23 +15,28 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
 
-  final List<Widget> _navbarItems = [
+  final List <Widget> _navbarItems = [
     const HomePage(),
-    const Text("search"),
-    const Text("account")
+    const SearchScreen(),
+    const ProfileScreen(),
   ];
+
+  void onTap(index){
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _navbarItems[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-            onTap: (int index) {
-              setState(() {
-                _currentIndex = index;
-               // Navigator.pop(context);
-              });
-            },
+        elevation: 0,
+        type: BottomNavigationBarType.fixed,
+            selectedItemColor: AppColors.primary,
+            unselectedItemColor: Colors.grey,
+            onTap: onTap,
             items: [
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
@@ -43,11 +47,15 @@ class _NavBarState extends State<NavBar> {
                 label: "Home",
               ),
               const BottomNavigationBarItem(
-                icon: Icon(Icons.search_outlined),
+                icon: Icon(
+                  Icons.search_outlined,
+                ),
                 label: "Search",
               ),
               const BottomNavigationBarItem(
-                icon: Icon(Icons.person_outlined),
+                icon: Icon(
+                  Icons.person_outlined,
+                ),
                 label: "Account",
               ),
             ]),
